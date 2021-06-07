@@ -50,6 +50,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>${docker.image.prefix}/${project.artifactId}:latest</name>
+					</image>
+					<layers>
+						<enabled>true</enabled>
+					</layers>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>com.spotify</groupId>
@@ -68,7 +76,7 @@
 						<phase>install</phase>
 						<goals>
 							<goal>build</goal>
-							<goal>push</goal>
+<!-- 							<goal>push</goal> -->
 						</goals>
 					</execution>
 				</executions>
